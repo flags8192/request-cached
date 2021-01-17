@@ -11,6 +11,7 @@ const express = require('express')
 const app = express()
 const mcache = require('memory-cache')
 
+app.set('views', './src/views')
 app.set('view engine', 'pug')
 
 const cache = (duration) => {
@@ -42,7 +43,7 @@ app.get('/', cache(5), (req, res) => {
 
 app.get('/user/:id', cache(10), (req, res) => {
   setTimeout(() => {
-    if (req.params.id == 1) {
+    if (+req.params.id === 1) {
       res.json(
         {
           'id': 1,
@@ -68,7 +69,7 @@ app.get('/user/:id', cache(10), (req, res) => {
           }
         }
       )
-    } else if (req.params.id == 2) {
+    } else if (+req.params.id === 2) {
       res.json(
         {
           'id': 2,
@@ -94,7 +95,7 @@ app.get('/user/:id', cache(10), (req, res) => {
           }
         }
       )
-    } else if (req.params.id == 3) {
+    } else if (+req.params.id === 3) {
       res.json(
         {
           'id': 3,

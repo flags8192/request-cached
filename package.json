@@ -2,7 +2,7 @@
   "name": "request-cached",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -10,6 +10,7 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "nodemon": "^2.0.7"
   }
 }
